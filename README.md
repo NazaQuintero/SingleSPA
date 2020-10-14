@@ -46,5 +46,5 @@ Ingrese a la carpeta `shared` y ejecute `serve -C -l 1234`.
 * [What are CJS, AMD, UMD, and ESM in Javascript?](https://dev.to/iggredible/what-the-heck-are-cjs-amd-umd-and-esm-ikm)
 * [Web Components](https://developer.mozilla.org/es/docs/Web/Web_Components)
 * [WebPack: Module Federation](https://webpack.js.org/concepts/module-federation/)
-* [Angular with Module Federation](https://www.angulararchitects.io/aktuelles/the-microfrontend-revolution-part-2-module-federation-with-angular/)
+* [Angular with Module Federation](https://www.angulararchitects.io/aktuelles/the-microfrontend-revolution-module-federation-in-webpack-5/)
 * [An ESM bundle for any NPM package](https://medium.com/@joeldenning/an-esm-bundle-for-any-npm-package-5f850db0e04d)

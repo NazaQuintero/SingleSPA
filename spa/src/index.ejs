@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Root Config</title>
-
   <!--
     Remove this if you only support browsers that support async/await.
     This is needed by babel to share largeish helper code for compiling async/await in older
@@ -50,7 +49,11 @@
         "@single-spa/welcome": "https://unpkg.com/single-spa-welcome/dist/single-spa-welcome.js",
         "@icbc/root-config": "//localhost:9000/icbc-root-config.js",
         "myApp": "http://localhost:4200/main.js",
-        "naza": "http://localhost:4300/main.js"
+        "naza": "http://localhost:4300/main.js",
+        "web-component": "http://localhost:5000/web-component.js",
+        "single-spa-html": "https://cdn.jsdelivr.net/npm/single-spa-html",
+        "shared": "http://localhost:1234/index.js",
+        "ng-shared" : "http://localhost:4321/bundles/ng-shared.umd.js"
       }
     }
   </script>
@@ -90,6 +93,10 @@
         <route path="naza">
           <application name="naza"></application>
         </route>
+        <route path="web-component">
+          <application name="web-component"></application>
+        </route>
+
       </main>
     </single-spa-router>
   </template>
@@ -100,14 +107,17 @@
   </script>
   <import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full>
 
+  <button onclick="navigate('/home')">
+    Link to home
+  </button>
   <button onclick="navigate('/my-app')">
     Link to my-app
   </button>
   <button onclick="navigate('/naza')">
     Link to naza
   </button>
-  <button onclick="navigate('/')">
-    Link to home
+  <button onclick="navigate('/web-component')">
+    Link to native
   </button>
 
   <script>

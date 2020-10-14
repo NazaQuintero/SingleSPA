@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Component</title>
+</head>
+<body>
+    <naza-native-element>Holaaaa!</naza-native-element>
+    <script>
+        class NazaElement extends HTMLParagraphElement {
+        constructor() {
+            super();
+        }
+        }
+        customElements.define('naza-native-element', NazaElement, { extends: 'p'});
+    </script>
+</body>
+</html>

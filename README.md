@@ -46,5 +46,23 @@ Ingrese a la carpeta `shared` y ejecute `serve -C -l 1234`.
 * [What are CJS, AMD, UMD, and ESM in Javascript?](https://dev.to/iggredible/what-the-heck-are-cjs-amd-umd-and-esm-ikm)
 * [Web Components](https://developer.mozilla.org/es/docs/Web/Web_Components)
 * [WebPack: Module Federation](https://webpack.js.org/concepts/module-federation/)
-* [Angular with Module Federation](https://www.angulararchitects.io/aktuelles/the-microfrontend-revolution-module-federation-in-webpack-5/)
+* [Angular with Module Federation](https://www.angulararchitects.io/aktuelles/the-microfrontend-revolution-part-2-module-federation-with-angular/)
 * [An ESM bundle for any NPM package](https://medium.com/@joeldenning/an-esm-bundle-for-any-npm-package-5f850db0e04d)
+
+
+## Opciones de implementación
+
+
+* _SingleSPA_ / Shell Nativo  / Shell Angular
+
+* MicroFront : AngularElements  / Angular Module Federation con Shell Angular / Angular SingleSPA / _AngularElements Single SPA_
+
+* Carga del MF: 
+
+* CodeSharing: Global / _ImportMap_ / Module Federation / *NADA*
+
+* Estado Compartido: Servicio Angular publicado en NPM trabajando su estado en window compartida en lugar de this / Inyectar customProperty en singleSPA
+
+* Features: Live Reload, Compilacion parcial, etc.
+
+* Modulorazcion: ECMA Script Modules, SystemJS, UMD (NodeJS + AMD)  

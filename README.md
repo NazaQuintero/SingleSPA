@@ -48,7 +48,7 @@ Ingrese a la carpeta `shared` y ejecute `serve -C -l 1234`.
 * [WebPack: Module Federation](https://webpack.js.org/concepts/module-federation/)
 * [Angular with Module Federation](https://www.angulararchitects.io/aktuelles/the-microfrontend-revolution-part-2-module-federation-with-angular/)
 * [An ESM bundle for any NPM package](https://medium.com/@joeldenning/an-esm-bundle-for-any-npm-package-5f850db0e04d)
-
+* [Tactical Domain-Driven Design with Angular and Monorepos?](https://www.angulararchitects.io/aktuelles/tactical-domain-driven-design-with-monorepos/)
 
 ## Opciones de implementación
 
@@ -65,4 +65,4 @@ Ingrese a la carpeta `shared` y ejecute `serve -C -l 1234`.
 
 * Features: Live Reload, Compilacion parcial, etc.
 
-* Modulorazcion: ECMA Script Modules, SystemJS, UMD (NodeJS + AMD)  
+* Modularizacion: ECMA Script Modules, SystemJS, UMD (NodeJS + AMD)  

@@ -4,7 +4,7 @@ Dado el crecimiento de las aplicaciones de FrontEnd, así como también de los e
 
 ### Contexto actual
 
-Actualmente, las aplicaciones de la organización, se encuentran desarrolladas en Angular(6+). Utilizan adicionalmente ngx-lucy, una libreria de componentes visuales desarrollada in-house, que cubre la totalidad de la renderización de las pantallas.
+Actualmente, las aplicaciones de la organización, se encuentran desarrolladas en Angular(6+). Utilizan adicionalmente ngx-lucy, una librería de componentes visuales desarrollada in-house, que cubre la totalidad de la renderización de las pantallas.
 
 En la medida que las aplicaciones existentes fueron creciendo, surgieron los siguientes incovenientes:
 
@@ -17,10 +17,11 @@ En la medida que las aplicaciones existentes fueron creciendo, surgieron los sig
 ### Cómo resolverlo
 
 Para mitigar estas cuestiones se analizarán diferentes posibilidades para dividir las aplicaciones, tradicionalmente monolíticas, en células independientes con bajo nivel de acoplamiento.
+Dada la corta vida de las tecnologías de FrontEnd, es deseable que la solución permita los microfrontends no estén atados a un framework y versión particular. Así se podría hacer, por ejemplo, una migración en etapas a tecnologías más modernas.
 
 ### Estrategia
 
-Un camino viable al momento de segmentar la aplicación es pensar en modulos por dominio de negocio e, internamente, una subdivision en capas (UI, modelos, logica de negocio, store y accesso a datos). A su vez, un conjuto de librerías core compartidas y un shell responsable del routeo principal.
+Un camino viable al momento de segmentar la aplicación es pensar en módulos por dominio de negocio e, internamente, una subdivisión en capas (UI, modelos, lógica de negocio, store y accesso a datos). A su vez, un conjuto de librerías core compartidas y un shell responsable del routeo principal.
 
 Se deben tener en cuenta los siguientes aspectos:
 - Shell
@@ -54,27 +55,27 @@ Un shell Angular que gobierne a SingleSPA internamente dentro de un componente q
 
 
 #### API de los módulos
+Entre las opciones analizadas para la composición del 'Shell' y las células se encuentran:
 
-FALTA DESCRIPCION
+* Angular Library por cada Microfrontend
+Se descartó esta opción ya que Ivy hace imposible el uso de @angular/xxx dinámicamente (requiere de ngcc).
 
-* Angular Apps
-Cada uno de los Microfrontend es un app completa
+* Angular Apps con API SingleSPA
+Cada uno de los Microfrontend es un app completa decorada con la API de SingleSPA
 
-* Angular Modules (Module Ferederation)
-Cada uno de los Microfronted es un Módulo Angular (dentro de una app angular aparte) exportados como un remote de Module Ferederation.
+* Angular Modules (Module Federation)
+Cada uno de los Microfrontend es un Módulo Angular (dentro de una app angular aparte) exportados como un remote de Module Federation.
 Funcionan como un chunk de lazy loading tradicional, solo que se pueden deployar por separado y linkear dinámicamente.
 
 * Angular Elements
-Cada microfrontend es un Angular Element
+Cada microfrontend es un AngularElement
 
 * Angular Elements con Shell Angular SingleSpa + Module Federation
 Una opción a probar (todavía no se experimentó) es la creación de microfrontends exportados como Angular Elements de SingleSPA.
 Sería necesario cargar los core y las librerías compartidas valiéndose de Module Federation
 
-* Angular Library
 
 #### Enlazado de los módulos
-<!--Estático, Dinamico -->
 El CLI de Angular propone una compilación estática monolítica de la aplicación. Sin embargo, con Module Federation, es posible realizar cargas dinámicas de módulos.
 
 
@@ -86,13 +87,25 @@ Este punto fue el que presentó mayor dificultad. Se analizaron las siguientes p
 * SystemJS con ImportMaps
 Esta posibilidad fue descartada para librerías que dependen de angular ya que la compilación de compatibilidad con Ivy hace imposible su uso dinamicamente (Angular genera archivos que no existen en los paquetes originales de NPM).
 
-* Module Federation
-Parece ser una opcion vaible, pero aun esta en beta y no esta soportada oficialmente por el CLI Angular.
-Requiere la versión 5.0 de WebPack y Angular CLI 11
 
+* Module Federation
+Parece ser una opcion viable, pero aún está en beta y no esta soportada oficialmente por el CLI Angular.
+Requiere la versión 5.0 de WebPack y Angular CLI 11 + parches varios.
 
 <!-- Las librerías compartidas pueden ser expuestas como módulos de NPM. -->
 
 
 #### Versionado en Repositorios
-<!--Monorepo vs Multiples Repos -->
+<!--Monorepo Nx vs Multiples Repos -->
+Aun no se evaluó en profundidad este tema. Quisiéramos saber que postura tienen frente a este punto.
+
+
+# Referencias
+* [SingleSpa: The Recommended Setup](https://single-spa.js.org/docs/recommended-setup/)
+* [Referencia ImportMaps](https://github.com/WICG/import-maps)
+* [Systemjs ImportMaps](https://github.com/systemjs/systemjs/blob/master/docs/import-maps.md)
+* [WebPack: Module Federation](https://webpack.js.org/concepts/module-federation/)
+* [Angular with Module Federation](https://www.angulararchitects.io/aktuelles/dynamic-module-federation-with-angular/)
+* [An ESM bundle for any NPM package](https://medium.com/@joeldenning/an-esm-bundle-for-any-npm-package-5f850db0e04d)
+* [Tactical Domain-Driven Design with Angular and Monorepos?](https://www.angulararchitects.io/aktuelles/tactical-domain-driven-design-with-monorepos/)
+* [Angular +  Vaadin Router](https://github.com/kito99/micro-frontends-demo)

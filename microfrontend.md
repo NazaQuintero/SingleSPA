@@ -100,7 +100,7 @@ Requiere la versión 5.0 de WebPack y Angular CLI 11 + parches varios.
 Aun no se evaluó en profundidad este tema. Quisiéramos saber que postura tienen frente a este punto.
 
 
-# Referencias
+## Referencias
 * [SingleSpa: The Recommended Setup](https://single-spa.js.org/docs/recommended-setup/)
 * [Referencia ImportMaps](https://github.com/WICG/import-maps)
 * [Systemjs ImportMaps](https://github.com/systemjs/systemjs/blob/master/docs/import-maps.md)
@@ -109,3 +109,19 @@ Aun no se evaluó en profundidad este tema. Quisiéramos saber que postura tiene
 * [An ESM bundle for any NPM package](https://medium.com/@joeldenning/an-esm-bundle-for-any-npm-package-5f850db0e04d)
 * [Tactical Domain-Driven Design with Angular and Monorepos?](https://www.angulararchitects.io/aktuelles/tactical-domain-driven-design-with-monorepos/)
 * [Angular +  Vaadin Router](https://github.com/kito99/micro-frontends-demo)
+
+
+## Otras Opciones de implementación a tener en cuenta (TODO: Probar / Investigar)
+
+
+*  Shell Angular + Monorepo + Librerias
+    - MF: Libraries + 1 App por cada MF para levantarlo
+    - Mono Repo: El tsconfig.json tiene los path para cada alias de libreria
+
+*  Shell Angular + Monorepo 
+    - MF: 1 App por cada MF para levantarlo
+    - Mono Repo: El tsconfig.json tiene los path para una carpeta en particular dentro del MF
+
+* Aplicacion Monolitica separada en modulos normales con lazy loading
+    
+

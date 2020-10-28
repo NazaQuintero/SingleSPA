@@ -47,13 +47,17 @@
     {
       "imports": {
         "@single-spa/welcome": "https://unpkg.com/single-spa-welcome/dist/single-spa-welcome.js",
+        "@angular/core": "https://cdn.jsdelivr.net/npm/@angular/core@10.1.6/bundles/core.umd.min.js",
+        "rxjs": "https://unpkg.com/rxjs@6.6.3/bundles/rxjs.umd.min.js",
+        "rxjs/operators": "https://unpkg.com/rxjs@6.6.3/bundles/rxjs.umd.min.js",
         "@icbc/root-config": "//localhost:9000/icbc-root-config.js",
         "myApp": "http://localhost:4200/main.js",
         "naza": "http://localhost:4300/main.js",
         "web-component": "http://localhost:5000/web-component.js",
         "single-spa-html": "https://cdn.jsdelivr.net/npm/single-spa-html",
         "shared": "http://localhost:1234/index.js",
-        "ng-shared" : "http://localhost:4321/bundles/ng-shared.umd.js"
+        "ng-shared" : "http://localhost:4321/bundles/ng-shared.umd.js",
+        "login": "http://localhost:4400/main.js"
       }
     }
   </script>
@@ -63,7 +67,7 @@
     If you need to support Angular applications, uncomment the script tag below to ensure only one instance of ZoneJS is loaded
     Learn more about why at https://single-spa.js.org/docs/ecosystem-angular/#zonejs
   -->
-  <!-- <script src="https://cdn.jsdelivr.net/npm/zone.js@0.10.3/dist/zone.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/zone.js@0.10.3/dist/zone.min.js"></script>
 
   <% if (isLocal) { %>
   <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@1.16.0/dist/import-map-overrides.js"></script>
@@ -109,6 +113,9 @@
 
   <button onclick="navigate('/home')">
     Link to home
+  </button>
+  <button onclick="navigate('/login')">
+    Link to login
   </button>
   <button onclick="navigate('/my-app')">
     Link to my-app

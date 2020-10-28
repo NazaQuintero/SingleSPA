@@ -46,6 +46,12 @@ registerApplication({
   app: () => System.import('web-component'),
   activeWhen: '/web-component'
 });
+
+registerApplication({
+  name: 'login',
+  app: () => System.import('login'),
+  activeWhen: '/login'
+});
 // <application name="@single-spa/welcome"></application>
 
 start();
